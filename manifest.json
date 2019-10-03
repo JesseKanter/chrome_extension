@@ -1,0 +1,24 @@
+{
+  "name": “Youtube_Comment_Filter”,
+  "version": “0.0.1”,
+  "manifest_version": 1,
+  "description": “Filters youtube comments by parameters set by user”,
+  "icons": {
+  "128": "icons/Logo.png"
+  },
+  "background": {
+    "scripts": ["src/bg/background.js"],
+    "persistent": false
+  },
+  "default_locale": "en",
+  "browser_action": {
+  "default_icon": "icons/Logo_greyscale.png",
+  "default_title": "Youtube_Comment_Filter",
+  "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+  "storage",
+  "tabs",
+  "webNavigation"
+  ]
+}
