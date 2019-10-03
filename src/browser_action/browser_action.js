@@ -1,18 +1,18 @@
 function load() {
 
   // Get the event_list container
-  var event_list = document.getElementById("event_list");
+  var event_list = document.getElementById("comment_list");
 
   // Retrieve data from local memory
-  chrome.storage.local.get("events", function(data) {
+  chrome.storage.local.get("comments", function(data) {
 
     // If the data is updated
-    if(typeof(data.events) !== "undefined") {
+    if(typeof(data.comments) !== "undefined") {
 
       event_list.innerHTML = "";
 
       // Generate list for each event entry
-      data.events.forEach(function(event, idx, array) {
+      data.comments.forEach(function(comment, idx, array) {
 
         // Check if the element is the last one. Use a different css style if true.
         if (idx === (array.length - 1)) {
