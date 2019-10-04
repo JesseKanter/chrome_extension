@@ -22,21 +22,21 @@ function load() {
         }
 
         // Obtain the event name, venue and link.
-        var event_name = event.name;
-        var event_link = event.link;
-        var event_venue = event.venue;
+        var comment_title = 'Comment';
+       
+        var comment_text = comment.comment_text;
 
         // Container for the event venue.
         var div = document.createElement("div");
-        div.innerHTML = event_venue;
-        div.setAttribute("class", "venue");
+        div.innerHTML = comment_title;
+        div.setAttribute("class", "title");
 
         var a = document.createElement("a");
 
-        a.innerHTML = event_name;
+        a.innerHTML = comment_text;
         // Open a blank tab when the link is clicked.
         a.setAttribute("target", "_blank");
-        a.setAttribute("href", event_link);
+        
 
         // Put the event venue and link to the element
         elmnt.appendChild(div);
