@@ -1,8 +1,8 @@
 {
-  "name": “Youtube_Comment_Filter”,
-  "version": “0.0.1”,
-  "manifest_version": 1,
-  "description": “Filters youtube comments by parameters set by user”,
+  "name": "YoutubeCommentFilter",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "Filters youtube comments by parameters set by user",
   "icons": {
   "128": "icons/Logo.png"
   },
