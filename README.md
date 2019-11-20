@@ -1,6 +1,9 @@
 # Weekendpedia Chrome Extension
 
 Everything below is from the wikipedia app i copied this from, I am reworking it for my app that looks at youtube comments.
+
+
+
 This repo is the Chrome Extension part of the [Insight Data Science](https://insightdatascience.com) project [Weekendpedia](https://chrome.google.com/webstore/search/weekendpedia). The source code for the API server and other information can be found in this [repo](https://github.com/jiananarthurli/insight_api).
 
 ```bash
