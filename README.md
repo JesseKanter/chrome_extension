@@ -1,7 +1,8 @@
 # YouTube Comment Extratcor Chrome Extension
 
-The overall format of this chrome extenstion is based on [repo](https://github.com/jiananarthurli/insight_chrome_extension) , I am reworking it for my app that looks at youtube comments.
+The overall format of this chrome extension is based on [repo](https://github.com/jiananarthurli/insight_chrome_extension) , I am reworking it for my app that looks at YouTube comments.
 
+This Chrome Extension takes inputs Start and Duration for a selected time slot of a YouTube video, and the video's id. It then sends the times and video id to a remote API server and retrieves from that server the comments most relevant to selected time slot of the video. The extension returns the comments as a list in the display window. The source code for the API server and other information can be found in this [repo](https://https://github.com/jiananarthurli/insight_chrome_extension).
 
 
 
@@ -30,9 +31,9 @@ There are four components in the the Chrome extension: manifest (```./manifest.j
 
 Manifest is the starting point of the extension. The basic info (extension name, description, etc), location of resources, and permissions are all stored in [```./manifest.json```](./manifest.json).
 
-The function that monitors the behavior of the Chrome extension is stored in [```./src/bg/background.js```](./src/bg/background.js). A listener function (```chrome.webNavigation.onDOMContentLoaded.addListener()```) is added so that the URL of the newest page is inspected once the [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) of the webpage is loaded . Wikipedia page topic is extracted from the URL, and sent to the API server. If relevant events are found, the event info will be returned in the json strings from the API server and then stored locally (```chrome.storage.local.set()```). The icon will be changed (```chrome.browserAction.setIcon()```) to notify the user.
+The [```./src/bg/background.js```](./src/bg/background.js) is currently oboslete for this chroem extension.
 
-Everytime the icon of the Chrom extension is clicked, a new webpage will be constructed from [```./src/browser_action```](./src/browser_action). The javascripts in [```./src/browser_action/browser_action.js```](./src/browser_action/browser_action.js) retrieve event info from the browser's local storage space (```chrome.storage.local.get()```). If the space is not empty, an event listing page will be constructed, using the styles defined in [```./browser_action/browser_action/style.css```](./src/browser_action/style.css), otherwise a default page is displayed.
+The functions that do most of the work are stored in [```./src/browser_action```](./src/browser_action). A function that listens for the click of a "submit" button is added (document.getElementById('submit').onclick) so that the user will start the process after entering in the start and duration times for the time slot of the video they want to find relevant comments for. The video id is extracted from the URL, and sent along with the start and duration times to the API server. When relevant comments are found, the comments info will be returned in json strings from the API server and then stored locally (```chrome.storage.local.set()```). The icon will be changed (```chrome.browserAction.setIcon()```) to notify the user. the comments will then be retrieved from the browser's local storage space (```chrome.storage.local.get()```). If the space is not empty, a comment listing page will be constructed, using the styles defined in [```./browser_action/browser_action/style.css```](./src/browser_action/style.css). IF the process fails, the initial display will not change.
 
 The locale information is stored in [```./_locales```](./_locales).
 
